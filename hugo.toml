@@ -1,6 +1,7 @@
-# TODO: replace with the production URL once the site is deployed
-# (canonical links, sitemap and RSS are built from it).
-baseURL = "http://localhost:1313/"
+# Production URL (canonical links, sitemap, RSS). The GitHub Actions
+# workflow also passes it explicitly with --baseURL; `hugo server`
+# overrides it with localhost automatically.
+baseURL = "https://guimapi1.github.io/"
 locale = "en-us"
 title = "Celeste Guimapi"
 
