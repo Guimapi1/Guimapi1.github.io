@@ -35,4 +35,4 @@ French (native) · English (B2)
 
 ## Contact
 
-[celeste-precil.guimapi-guefack@imt-atlantique.fr](mailto:celeste-precil.guimapi-guefack@imt-atlantique.fr) · [ORCID](https://orcid.org/0009-0009-6548-0635) · [GitHub](https://github.com/Guimapi1)
+[Email](mailto:celeste-precil.guimapi-guefack@imt-atlantique.fr) · [ORCID](https://orcid.org/0009-0009-6548-0635) · [GitHub](https://github.com/Guimapi1)

@@ -19,6 +19,17 @@
     --accent: #1f5f73;
     --accent-soft: rgba(31, 95, 115, 0.06);
     --accent-line: rgba(31, 95, 115, 0.35);
+
+    /* Light theme: warm off-white paper and softened greys instead of
+       PaperMod's pure white / near-black, which is harsh on the eyes. */
+    --theme: #f7f6f2;
+    --entry: #fbfaf7;
+    --primary: #24272b;
+    --content: #33373c;
+    --secondary: #62666c;
+    --tertiary: #d6d4cc;
+    --border: #e3e0d8;
+    --code-bg: #eeece6;
 }
 
 :root[data-theme="dark"] {
@@ -40,64 +51,70 @@
 
 
 /* ---------------------------------------------------------
-   Hero
+   Hero: compact profile card (photo + name + role), then intro
    --------------------------------------------------------- */
 
 .home-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
-    gap: 3rem;
-    padding: 5rem 0 6rem;
+    padding: 4rem 0 5rem;
 }
 
-.home-hero-text {
-    max-width: 760px;
+.hero-id {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.25rem;
 }
 
 .home-photo {
-    width: 200px;
-    height: 200px;
-    margin-top: 2.5rem;
+    flex-shrink: 0;
+    width: 168px;
+    height: 168px;
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid var(--border);
 }
 
-.home-supervisors {
-    font-size: 0.95rem;
+.home-hero .hero-name {
+    margin: 0 0 0.35rem;
+    font-size: 2.1rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.hero-role {
+    margin: 0;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+.hero-affil {
+    margin: 0.15rem 0 0;
+    font-size: 0.9rem;
     color: var(--secondary);
 }
 
 .home-hero .social-icons {
+    margin-top: 0.7rem;
     padding: 0;
-    margin-top: 1.5rem;
 }
 
 .home-hero .social-icons a:first-child {
     padding-left: 0;
 }
 
-.home-eyebrow {
-    margin-bottom: 1.2rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: var(--accent);
-}
-
-.home-hero h1 {
-    margin-bottom: 1.5rem;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.055em;
+.home-hero-text {
+    max-width: 760px;
 }
 
 .home-intro {
-    max-width: 760px;
     margin-bottom: 1rem;
     font-size: 1.15rem;
     line-height: 1.75;
+    color: var(--content);
+}
+
+.home-supervisors {
+    font-size: 0.95rem;
     color: var(--secondary);
 }
 
@@ -712,16 +729,21 @@
 @media screen and (max-width: 750px) {
 
     .home-hero {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 0;
-        padding: 3.5rem 0 4rem;
+        padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-id {
+        gap: 1.25rem;
+        margin-bottom: 1.75rem;
     }
 
     .home-photo {
-        width: 112px;
-        height: 112px;
-        margin: 0 0 1.5rem;
+        width: 104px;
+        height: 104px;
+    }
+
+    .home-hero .hero-name {
+        font-size: 1.6rem;
     }
 
     .home-section {

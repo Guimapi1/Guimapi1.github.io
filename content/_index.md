@@ -7,7 +7,7 @@ title: "Home"
 # pages (content/projects/) and from data/publications.yaml.
 
 hero:
-  eyebrow: "PhD Student · Energy-efficient Cloud & Serverless Computing"
+  role: "PhD Student in Computer Science"
   intro:
     - >-
       I am a PhD student at **IMT Atlantique** in Nantes, France, working on
