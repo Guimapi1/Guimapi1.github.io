@@ -1,0 +1,20 @@
+# Single source of truth for publications and talks.
+# Rendered on the homepage, /publications/ and /cv/ via the
+# "publication.html" partial and the {{< publications >}} shortcode.
+
+- title: "Étude énergétique des algorithmes de tri en fonction du désordre dans les données à trier"
+  authors:
+    - Celeste Guimapi
+    - Remous-Aris Koutsiamanis
+    - Jean-Marc Menaud
+  kind: "Conference paper & talk"
+  venue: "COMPAS 2024"
+  venue_full: "Conférence francophone d'informatique en Parallélisme, Architecture et Système"
+  location: "Nantes, France"
+  date: 2024-07-04
+  summary: >-
+    Energy consumption of sorting algorithms as a function of the disorder
+    present in the input data, measured on the Grid'5000 testbed.
+  links:
+    - label: "HAL"
+      url: "https://hal.science/hal-05641224v1"

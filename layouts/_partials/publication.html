@@ -1,0 +1,25 @@
+{{- /*
+  Renders one entry of data/publications.yaml.
+  Context: dict "pub" <entry> "summary" <bool>
+*/ -}}
+{{- $p := .pub -}}
+<article class="pub">
+  <p class="pub-meta">
+    {{ $p.venue }}{{ with $p.location }} · {{ . }}{{ end }} · {{ time.Format "January 2006" $p.date }}
+    {{- with $p.kind }} <span class="pub-kind">{{ . }}</span>{{ end }}
+  </p>
+  <h3 class="pub-title">{{ $p.title }}</h3>
+  <p class="pub-authors">
+    {{- range $i, $a := $p.authors -}}
+      {{- if $i }}, {{ end -}}
+      {{- if eq $a site.Params.author }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end -}}
+    {{- end -}}
+  </p>
+  {{- with $p.venue_full }}<p class="pub-venue">{{ . }}</p>{{ end }}
+  {{- if and .summary $p.summary }}<p class="pub-summary">{{ $p.summary }}</p>{{ end }}
+  {{- with $p.links }}
+  <p class="pub-links">
+    {{- range . }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }} →</a>{{ end -}}
+  </p>
+  {{- end }}
+</article>

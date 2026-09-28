@@ -1,0 +1,8 @@
+{{- /* Lists every entry of data/publications.yaml, most recent first.
+       Usage: {{< publications >}} or {{< publications summary="false" >}} */ -}}
+{{- $summary := ne (.Get "summary") "false" -}}
+<div class="pub-list">
+{{- range sort hugo.Data.publications "date" "desc" }}
+  {{- partial "publication.html" (dict "pub" . "summary" $summary) }}
+{{- end }}
+</div>
