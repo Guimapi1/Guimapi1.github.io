@@ -1,135 +1,35 @@
 ---
-title: "Energy-efficient Serverless Computing"
-description: "Experimental research on energy consumption, power management, and performance in serverless computing environments."
+title: "Strict Energy Budgets for Serverless Platforms"
+description: "PhD work on enforcing strict energy budgets on serverless function executions without breaking application consistency."
+summary: "A system for Apache OpenWhisk that turns an energy budget into a guarantee held during execution, without leaving multi-step workflows in an inconsistent state."
+period: "2025 – present"
+status: "Implementation complete · experimental campaign in progress · article in preparation"
+platform: "Apache OpenWhisk on Grid'5000"
+keywords: ["Serverless", "Energy budgets", "Scheduling", "OpenWhisk"]
+stack: "Go · Python · Linux · Apache OpenWhisk"
+weight: 1
+aliases:
+  - /projects/energy-efficient-serverless/
 ---
 
-## Overview
+## Context
 
-This research project investigates the relationship between **energy consumption, power consumption, resource utilisation, and application performance** in serverless computing environments.
+Serverless platforms run short-lived functions on shared machines, scaling them up and down with demand. This makes them attractive for energy-aware computing — but also makes the energy of each execution hard to account for, and harder still to bound.
 
-The project forms part of my PhD research on software-based power capping mechanisms for serverless applications.
+## Problem
 
-The experiments primarily use **Apache OpenWhisk** as the serverless platform.
+Existing energy-budget policies for serverless platforms measure and limit consumption **after the fact**. Nothing guarantees that an execution stays within its budget *while it runs*: the budget is a statistical target, not a limit.
 
----
+Enforcing a hard limit raises a second problem. Stopping a function mid-execution can leave an application in an inconsistent state — especially in a multi-step workflow where earlier steps have already had side effects, such as a payment or a database write.
 
-## Objectives
+The question I address is therefore: **how can a serverless platform guarantee a strict energy budget without ever breaking the consistency of the applications it runs?**
 
-The project aims to better understand how serverless application characteristics and resource utilisation influence energy and power consumption.
+## Approach
 
-The main objectives are to:
+I am designing and implementing a system for **Apache OpenWhisk** that treats the energy budget as an invariant rather than an optimisation target. It combines scheduling decisions with enforcement inside the function runtime, and relies on information declared by developers about what each function may safely undergo if it has to be interrupted.
 
-- characterise the behaviour of serverless workloads;
-- measure application performance;
-- analyse resource utilisation;
-- measure power and energy consumption;
-- identify power-performance trade-offs;
-- investigate software-based approaches to power control.
-
----
-
-## Experimental Approach
-
-The experimental methodology consists of running controlled workloads and observing their behaviour under different configurations.
-
-The experiments consider several dimensions:
-
-```text
-Workload characteristics
-        ↓
-Serverless execution
-        ↓
-Resource utilisation
-        ↓
-Power consumption
-        ↓
-Application performance
-        ↓
-Energy efficiency
-```
-
-Measurements are collected and analysed to identify relationships between system behaviour, resource usage, power consumption, and performance.
-
----
-
-## Serverless Platform
-
-The primary platform used for the experiments is **Apache OpenWhisk**.
-
-OpenWhisk provides an event-driven serverless execution environment in which application logic can be deployed as actions and invoked according to workload requirements.
-
-Using a dedicated serverless platform makes it possible to study the behaviour of individual functions and workloads under controlled experimental conditions.
-
----
-
-## Measurements
-
-The experimental evaluation focuses on several categories of measurements.
-
-**Performance**
-
-- execution time;
-- latency;
-- throughput;
-- workload completion.
-
-**Resource Utilisation**
-
-- CPU utilisation;
-- memory utilisation;
-- resource allocation.
-
-**Energy and Power**
-
-- power consumption;
-- energy consumption;
-- changes in consumption under different workloads and configurations.
-
-These measurements are analysed together rather than independently in order to study the trade-offs between energy efficiency and application performance.
-
----
-
-## Technologies
-
-The main technologies and tools involved in the project include:
-
-**Serverless**
-
-- Apache OpenWhisk
-
-**Infrastructure**
-
-- Docker · Kubernetes
-
-**Programming and Experimentation**
-
-- Python · Shell
-
-**System and Development**
-
-- Linux · Git
-
-Other serverless technologies such as Knative and OpenFaaS are also part of my broader technical knowledge and provide useful points of comparison.
-
----
-
-## Research Questions
-
-The project addresses questions such as:
-
-- How does workload behaviour affect power consumption in serverless applications?
-- How are resource utilisation and power consumption related?
-- What are the relationships between power consumption and application performance?
-- How can software-level mechanisms be used to control power consumption?
-- What performance trade-offs result from applying power constraints?
-- How can power-aware mechanisms contribute to more energy-efficient serverless computing?
-
----
+The work follows an explicit engineering methodology: architecture decisions are documented one by one, the specification is kept in sync with the code, and every mechanism is verified on a real cluster of the **Grid'5000** testbed — not only in unit tests.
 
 ## Status
 
-**Ongoing research project**
-
-This project is part of my PhD research at IMT Atlantique.
-
-The current work focuses on experimental evaluation and the development of software-based approaches for power management in serverless applications.
+The system is implemented and a full experimental campaign is under way on Grid'5000. An article presenting the approach and its evaluation is in preparation; details will be published here once it is available.

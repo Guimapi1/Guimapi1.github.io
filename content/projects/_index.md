@@ -1,5 +1,5 @@
 ---
 title: "Projects"
+description: "Research projects on the energy efficiency of software, cloud and serverless systems."
+hidemeta: true
 ---
-
-This section presents research projects and experimental activities related to cloud computing, serverless systems, energy efficiency, and performance evaluation.
