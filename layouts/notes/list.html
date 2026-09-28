@@ -1,0 +1,29 @@
+{{- define "main" }}
+{{- /* Notes sections list the notes themselves (recursively), newest first,
+       rather than PaperMod's default cards for sub-sections. */ -}}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . | markdownify }}</div>
+  {{- end }}
+</header>
+
+{{- with .Content }}
+<div class="post-content md-content">{{ . }}</div>
+{{- end }}
+
+<div class="notes-list">
+  {{- range .RegularPagesRecursive.ByDate.Reverse }}
+  <a href="{{ .RelPermalink }}">
+    <span>
+      {{ .Title }}
+      <small>{{ .Parent.Title }} · {{ .Date | time.Format "January 2006" }}</small>
+    </span>
+    <span>→</span>
+  </a>
+  {{- end }}
+</div>
+
+{{- end }}
