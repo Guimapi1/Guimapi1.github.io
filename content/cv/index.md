@@ -1,112 +1,88 @@
 ---
 title: "CV"
-description: "Academic CV of Celeste Guimapi, PhD student in cloud and serverless computing."
+description: "Academic CV — PhD student in computer science at IMT Atlantique."
+hidemeta: true
+ShowPostNavLinks: false
+ShowBreadCrumbs: false
 ---
 
 ## Profile
 
-PhD student at **IMT Atlantique** in Nantes, France, researching energy-efficient cloud and serverless computing.
-
-My research focuses on **software-based power capping mechanisms for serverless applications**, with an emphasis on the relationship between power consumption, energy efficiency, and application performance.
-
----
+PhD student at IMT Atlantique (LS2N, STACK team) working on the energy efficiency of cloud applications. My current work focuses on enforcing strict energy budgets on serverless platforms, implemented on Apache OpenWhisk and evaluated on the Grid'5000 testbed.
 
 ## Education
 
-### PhD in Computer Science
+{{< cv-entry title="PhD in Computer Science" org="IMT Atlantique · LS2N, STACK team · Nantes, France" dates="Jan 2025 – present" >}}
+*Energy Efficiency of Applications in the Cloud.*\
+Supervisors: [Jean-Marc Menaud](http://menaud.fr/) (Professor) and [Remous-Aris Koutsiamanis](https://ariskou.com/) (Senior Lecturer).
+{{< /cv-entry >}}
 
-**IMT Atlantique — Nantes, France**
-
-PhD research in energy-efficient cloud and serverless computing.
-
-**Research topic:**  
-Software-based power capping mechanisms for serverless applications.
-
-**Research areas:**  
-Cloud Computing · Serverless Computing · Energy Efficiency · Power Management · Performance Evaluation
-
----
+{{< cv-entry title="Master's Degree in Computer Science" org="École Nationale Polytechnique · Yaoundé, Cameroon" dates="2019 – 2024" >}}
+{{< /cv-entry >}}
 
 ## Research Experience
 
-### Energy-efficient Cloud and Serverless Computing
+{{< cv-entry title="Strict energy budgets for serverless platforms" org="PhD research · IMT Atlantique" dates="2025 – present" >}}
+- Design and implementation of a system that enforces strict energy budgets on serverless function executions while keeping multi-step applications consistent.
+- Implementation on Apache OpenWhisk (Go, Python); experimental evaluation on Grid'5000. Article in preparation.
+{{< /cv-entry >}}
 
-**IMT Atlantique · PhD Research**
+{{< cv-entry title="Research Intern" org="IMT Atlantique · Nantes, France" dates="Apr – Aug 2024" >}}
+- Energy consumption of sorting algorithms as a function of input disorder, on Grid'5000 (Python, perf, Matplotlib) — presented at COMPAS 2024.
+- IoT system collecting energy metrics from a smart plug (Python, Mosquitto MQTT, Zigbee MQTT).
+- Energy impact of parallel and distributed computing and of the programming language on Raspberry Pi devices (C, Java, Python, OpenMP, MPICH).
+{{< /cv-entry >}}
 
-My research investigates software-level approaches for monitoring and controlling the power consumption of serverless applications while maintaining application performance.
+## Teaching
 
-The experimental work focuses on the relationship between:
+{{< cv-entry title="Smart Grid Project" org="IMT Atlantique · first year (L1) · lab sessions, 17 h" dates="Apr – May 2025" >}}
+{{< /cv-entry >}}
 
-- workload characteristics;
-- application performance;
-- resource utilisation;
-- power consumption;
-- energy consumption.
+## Publications & Talks
 
-**Main research environment:**
+{{< publications summary="false" >}}
 
-Apache OpenWhisk · Docker · Kubernetes · Linux · Python · Shell
+## Other Experience
 
-**Additional serverless platforms:**  
-Knative · OpenFaaS
+{{< cv-entry title="Data Scientist Intern" org="Boissons du Cameroun · Cameroon" dates="Jul – Sep 2023" >}}
+- Requirements gathering with department heads for software supporting control of the brewing process.
+- Machine-learning model for diagnostic and prescriptive fault analysis (Python, MySQL, Power BI).
+{{< /cv-entry >}}
 
----
+{{< cv-entry title="Software projects" org="Full-stack web, desktop and mobile applications" dates="" >}}
+Ticketing and revenue monitoring for a gaming room (Next.js, Electron, React Native, PostgreSQL, WebSockets); real-estate search with interactive maps (Angular, Leaflet, Express.js); membership and payments management (React, Express.js, MySQL).
+{{< /cv-entry >}}
 
-## Publications
+## Continuing Education
 
-### Étude énergétique des algorithmes de tri en fonction du désordre dans les données à trier
+{{< cv-entry title="[IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/specializations/devops-and-software-engineering)" org="IBM · Coursera" dates="In progress" >}}
+{{< /cv-entry >}}
 
-**Celeste Guimapi**, **Remous-Aris Koutsiamanis**, **Jean-Marc Menaud**
+{{< cv-entry title="Introduction to Object-Oriented Programming (in Java)" org="EPFL · Coursera" dates="Dec 2021" >}}
+{{< /cv-entry >}}
 
-*COMPAS 2024 — Conférence francophone d'informatique en Parallélisme, Architecture et Système*
+{{< cv-entry title="Introduction to Programming (in Java)" org="EPFL · Coursera" dates="Nov 2021" >}}
+{{< /cv-entry >}}
 
-Nantes, France · July 2024
+## Skills
 
-[View publication on HAL →](https://hal.science/hal-05641224v1)
+{{< cv-entry title="Programming" dates="" >}}
+Python · Go · C · Java · SQL · JavaScript / TypeScript
+{{< /cv-entry >}}
 
----
+{{< cv-entry title="Systems & research infrastructure" dates="" >}}
+Apache OpenWhisk · Docker · Linux · Grid'5000 · perf · Git\
+Also familiar with Knative, OpenFaaS and Hadoop.
+{{< /cv-entry >}}
 
-## Technical Skills
+{{< cv-entry title="Software engineering" dates="" >}}
+Next.js · React Native · Angular · Express.js · Flask · PostgreSQL · MySQL
+{{< /cv-entry >}}
 
-### Cloud & Serverless
+## Languages
 
-Apache OpenWhisk · Kubernetes · Docker · Knative · OpenFaaS
+French (native) · English (B2)
 
-### Programming & Scripting
+## Other Activities
 
-Python · Shell
-
-### Software Development
-
-Git · GitHub
-
-### Research & Experimentation
-
-Performance evaluation · Resource monitoring · Energy measurement · Experimental analysis · Reproducibility
-
----
-
-## Research Interests
-
-- Energy-efficient computing
-- Cloud computing
-- Serverless computing
-- Software-based power management
-- Power-performance trade-offs
-- Cloud resource management
-- Performance and energy evaluation
-- Sustainable computing
-
----
-
-## Current Research
-
-I am currently finalising the experimental work conducted during the first part of my PhD and preparing research work related to energy efficiency and power management in serverless computing.
-
----
-
-## Download
-
-A complete version of my CV is available as a PDF.
-
-[Download my CV →](/files/cv.pdf)
+Founder of **DeepTutoring**, a home-tutoring group for students in preparatory classes in Cameroon.

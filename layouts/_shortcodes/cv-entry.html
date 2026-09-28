@@ -1,0 +1,10 @@
+{{- /* One dated CV entry. Body is markdown.
+       {{< cv-entry title="…" org="…" dates="…" >}} … {{< /cv-entry >}} */ -}}
+<div class="cv-entry">
+  <div class="cv-dates">{{ .Get "dates" }}</div>
+  <div class="cv-body">
+    <h3>{{ .Get "title" | markdownify }}</h3>
+    {{- with .Get "org" }}<p class="cv-org">{{ . | markdownify }}</p>{{ end }}
+    {{- with .Inner }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+  </div>
+</div>
