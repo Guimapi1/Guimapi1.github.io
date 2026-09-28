@@ -1,3 +1,92 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Celeste Guimapi"
+
+theme = "PaperMod"
+
+[params]
+    env = "production"
+
+    description = "PhD student working on energy-efficient cloud and serverless computing."
+    author = "Celeste Guimapi"
+
+    defaultTheme = "auto"
+    disableThemeToggle = false
+
+    ShowReadingTime = true
+    ShowShareButtons = false
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
+    ShowWordCount = false
+
+    disableSpecial1stPost = true
+    hidemeta = false
+    hideSummary = false
+
+    [params.homeInfoParams]
+        Title = "PhD Student · Cloud Computing · Serverless · Energy Efficiency"
+        Content = """
+I am a PhD student at **IMT Atlantique** in Nantes, France, working on energy-efficient cloud and serverless computing.
+
+My research focuses on **software-based power capping mechanisms for serverless applications**, with the aim of dynamically controlling power consumption while maintaining application performance.
+"""
+
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/Guimapi1"
+
+    [[params.socialIcons]]
+        name = "email"
+        url = "mailto:celeste-precil.guimapi-guefack@imt-atlantique.fr"
+
+[menu]
+
+    [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about/"
+        weight = 10
+
+    [[menu.main]]
+        identifier = "research"
+        name = "Research"
+        url = "/research/"
+        weight = 20
+
+    [[menu.main]]
+        identifier = "projects"
+        name = "Projects"
+        url = "/projects/"
+        weight = 30
+
+    [[menu.main]]
+        identifier = "publications"
+        name = "Publications"
+        url = "/publications/"
+        weight = 40
+
+    [[menu.main]]
+        identifier = "notes"
+        name = "Notes"
+        url = "/notes/"
+        weight = 50
+
+    [[menu.main]]
+        identifier = "cv"
+        name = "CV"
+        url = "/cv/"
+        weight = 60
+
+[markup]
+
+    [markup.highlight]
+        noClasses = false
+        lineNos = false
+        codeFences = true
+        guessSyntax = true
+        style = "github"
+
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true

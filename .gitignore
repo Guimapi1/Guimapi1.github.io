@@ -1,0 +1,6 @@
+/public/
+/resources/
+.hugo_build.lock
+.DS_Store
+# Private working notes (unpublished research) — never commit
+CONTEXTE_PROJET_ECOWHISK.md
