@@ -676,6 +676,10 @@
     display: none;
 }
 
+.content-lead .cv-download {
+    margin: 0;
+}
+
 
 /* ---------------------------------------------------------
    Notes list
@@ -705,7 +709,7 @@
    Responsive
    --------------------------------------------------------- */
 
-@media (max-width: 750px) {
+@media screen and (max-width: 750px) {
 
     .home-hero {
         display: flex;
@@ -786,16 +790,27 @@
     }
 
     @page {
+        size: A4;
         margin: 14mm 15mm;
     }
 
     body {
         background: #fff;
-        font-size: 10pt;
+        font-size: 9.5pt;
+    }
+
+    .md-content .content-section > h3 {
+        margin-top: 1rem;
+    }
+
+    .cv-body p,
+    .cv-body li {
+        line-height: 1.45;
     }
 
     .header,
     .site-footer,
+    .cv-download,
     .breadcrumbs,
     .top-link,
     .post-footer,

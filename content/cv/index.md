@@ -7,6 +7,8 @@ ShowBreadCrumbs: false
 printHeader: true
 ---
 
+<p class="cv-download"><a class="text-link" href="/files/cv.pdf">Download as PDF →</a></p>
+
 ## Profile
 
 PhD student at IMT Atlantique (LS2N, STACK team) working on the energy efficiency of cloud applications. My current work focuses on enforcing strict energy budgets on serverless platforms, implemented on Apache OpenWhisk and evaluated on the Grid'5000 testbed.
@@ -36,7 +38,7 @@ Supervisors: [Jean-Marc Menaud](http://menaud.fr/) (Professor) and [Remous-Aris 
 
 ## Teaching
 
-{{< cv-entry title="Smart Grid Project" org="IMT Atlantique · first year (L1) · lab sessions, 17 h" dates="Apr – May 2025" >}}
+{{< cv-entry title="Smart Grid Project" org="IMT Atlantique · first year (L1) · lab sessions, 17 h" dates="Apr – May 2025" >}}
 {{< /cv-entry >}}
 
 ## Publications & Talks
