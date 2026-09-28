@@ -1,290 +1,125 @@
 {{- define "main" }}
+{{- /*
+  Homepage. Structure lives here; all text comes from the front matter of
+  content/_index.md, project cards from the project pages themselves and
+  publications from data/publications.yaml.
+*/ -}}
+{{- $p := .Params }}
 
 <main class="academic-home">
 
     <!-- Hero -->
     <section class="home-hero">
-        <p class="home-eyebrow">
-            PhD Student · Cloud Computing · Serverless · Energy Efficiency
-        </p>
+        <div class="home-hero-text">
+            <p class="home-eyebrow">{{ $p.hero.eyebrow }}</p>
 
-        <h1>Celeste Guimapi</h1>
+            <h1>{{ site.Title }}</h1>
 
-        <p class="home-intro">
-            I am a PhD student at <strong>IMT Atlantique</strong> in Nantes,
-            France, working on energy-efficient cloud and serverless computing.
-        </p>
+            {{- range $p.hero.intro }}
+            <p class="home-intro">{{ . | markdownify }}</p>
+            {{- end }}
 
-        <p class="home-intro">
-            My research focuses on <strong>software-based power capping
-            mechanisms for serverless applications</strong>, with the aim of
-            dynamically controlling power consumption while maintaining
-            application performance.
-        </p>
+            {{- with site.Params.supervisors }}
+            <p class="home-supervisors">
+                Supervised by
+                {{ range $i, $s := . -}}
+                {{- if $i }} and {{ end -}}
+                <a href="{{ $s.url }}" target="_blank" rel="noopener">{{ $s.name }}</a>
+                {{- end }}.
+            </p>
+            {{- end }}
 
-        <div class="home-actions">
-            <a class="home-button primary" href="/cv/">
-                CV
-            </a>
+            <div class="home-actions">
+                <a class="home-button primary" href="{{ "cv/" | relURL }}">CV</a>
+                <a class="home-button" href="{{ "research/" | relURL }}">Research</a>
+                <a class="home-button" href="{{ "publications/" | relURL }}">Publications</a>
+            </div>
 
-            <a class="home-button" href="/research/">
-                Research
-            </a>
-
-            <a class="home-button" href="/publications/">
-                Publications
-            </a>
+            {{- partial "social_icons.html" (dict "align" "left") }}
         </div>
+
+        {{- with site.Params.profileImage }}
+        <img class="home-photo" src="{{ . | relURL }}" alt="Portrait of {{ site.Title }}"
+             width="200" height="200">
+        {{- end }}
     </section>
 
 
     <!-- Research -->
     <section class="home-section">
-        <div class="section-label">
-            Research
-        </div>
+        <div class="section-label">Research</div>
 
         <div class="section-content">
-            <h2>Energy-efficient Cloud &amp; Serverless Computing</h2>
+            <h2>{{ $p.research.title }}</h2>
 
-            <p>
-                My PhD research investigates the energy efficiency of cloud
-                applications, with a particular focus on serverless computing.
-            </p>
+            {{- range $p.research.text }}
+            <p>{{ . | markdownify }}</p>
+            {{- end }}
 
-            <p>
-                I study how software-level mechanisms can be used to monitor
-                and control the power consumption of serverless applications
-                while considering the trade-offs between
-                <strong>energy consumption, performance, and resource
-                utilisation</strong>.
-            </p>
-
-            <div class="research-tags">
-                <span>Serverless Computing</span>
-                <span>Cloud Computing</span>
-                <span>Energy Efficiency</span>
-                <span>Power Management</span>
-                <span>Kubernetes</span>
-                <span>OpenWhisk</span>
+            {{- with $p.research.current }}
+            <div class="research-feature">
+                <p class="project-meta">{{ .meta }}</p>
+                <h3>{{ .title }}</h3>
+                <p>{{ .text | markdownify }}</p>
+                {{- with .stack }}<div class="technology-line">{{ . }}</div>{{ end }}
+                {{- with .link }}
+                <a class="text-link" href="{{ . | relURL }}">Read more →</a>
+                {{- end }}
             </div>
-
-            <a class="text-link" href="/research/">
-                Explore my research →
-            </a>
-        </div>
-    </section>
-
-
-    <!-- Current research -->
-    <section class="home-section">
-        <div class="section-label">
-            Current Research
-        </div>
-
-        <div class="section-content research-feature">
-            <p class="project-meta">
-                PhD Research · IMT Atlantique
-            </p>
-
-            <h2>
-                Software-based Power Capping
-                for Serverless Applications
-            </h2>
-
-            <p>
-                Cloud and serverless platforms dynamically allocate computing
-                resources according to application demand. However, managing
-                their energy consumption while maintaining application
-                performance remains a challenging problem.
-            </p>
-
-            <p>
-                My research explores software-based approaches for controlling
-                the power consumption of serverless applications while
-                preserving their performance requirements.
-            </p>
-
-            <div class="technology-line">
-                Kubernetes · OpenWhisk · Docker · Linux · Python
-            </div>
-
-            <a class="text-link" href="/research/phd-research/">
-                Read more →
-            </a>
+            {{- end }}
         </div>
     </section>
 
 
     <!-- Projects -->
+    {{- with $p.projects }}
     <section class="home-section">
-        <div class="section-label">
-            Selected Projects
-        </div>
+        <div class="section-label">Selected Projects</div>
 
         <div class="project-grid">
-
+            {{- range $i, $path := . }}
+            {{- with site.GetPage $path }}
             <article class="project-card">
-                <p class="project-number">01</p>
-
-                <h3>
-                    Energy-efficient Serverless Computing
-                </h3>
-
-                <p>
-                    Experimental research on the relationship between
-                    application characteristics, resource utilisation,
-                    performance, and power consumption in serverless
-                    environments.
-                </p>
-
-                <p class="project-focus">
-                    Serverless · OpenWhisk · Kubernetes · Energy Measurement
-                </p>
-
-                <a class="text-link" href="/projects/energy-efficient-serverless/">
-                    View project →
-                </a>
+                <p class="project-number">{{ printf "%02d" (add $i 1) }}{{ with .Params.period }} · {{ . }}{{ end }}</p>
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Params.summary | default .Description }}</p>
+                {{- with .Params.keywords }}
+                <p class="project-focus">{{ delimit . " · " }}</p>
+                {{- end }}
+                <a class="text-link" href="{{ .RelPermalink }}">View project →</a>
             </article>
-
-
-            <article class="project-card">
-                <p class="project-number">02</p>
-
-                <h3>
-                    Cloud Application Performance &amp; Energy Analysis
-                </h3>
-
-                <p>
-                    Experimental analysis of how workload and application
-                    behaviour affect resource consumption and performance
-                    in cloud environments.
-                </p>
-
-                <p class="project-focus">
-                    Cloud · Performance · Resource Utilisation · Energy
-                </p>
-
-                <a class="text-link" href="/projects/cloud-energy-analysis/">
-                    View project →
-                </a>
-            </article>
-
+            {{- else }}
+            {{- errorf "homepage: project page %q not found (content/_index.md)" $path }}
+            {{- end }}
+            {{- end }}
         </div>
-
-        <a class="text-link section-link" href="/projects/">
-            View all projects →
-        </a>
     </section>
+    {{- end }}
 
 
     <!-- Publications -->
     <section class="home-section compact-section">
         <div class="section-label">Publications</div>
-        <div class="section-content">
-            <p class="project-meta">COMPAS 2024 · Nantes, France</p>
-
-            <h2>
-                Étude énergétique des algorithmes de tri en fonction du désordre dans les données à trier
-            </h2>
-
-            <p>
-                Celeste Guimapi, Remous-Aris Koutsiamanis, Jean-Marc Menaud
-            </p>
-
-            <p>
-                Research on the energy consumption of sorting algorithms
-                according to the disorder present in the input data.
-            </p>
-
-            <a class="text-link"
-            href="https://hal.science/hal-05641224v1"
-            target="_blank"
-            rel="noopener">
-                View publication on HAL →
-            </a>
-        </div>
-    </section>
-
-
-    <!-- Technical notes -->
-    <section class="home-section">
-        <div class="section-label">
-            Technical Notes
-        </div>
 
         <div class="section-content">
-            <p>
-                Short notes about tools, concepts, and technologies that are
-                useful in my research.
-            </p>
+            {{- range first 3 (sort hugo.Data.publications "date" "desc") }}
+            {{- partial "publication.html" (dict "pub" . "summary" false) }}
+            {{- end }}
 
-            <div class="notes-list">
-
-                <a href="/notes/software/">
-                    <span>Understanding Git for Research Projects</span>
-                    <span>→</span>
-                </a>
-
-                <a href="/notes/serverless/">
-                    <span>Getting Started with OpenWhisk</span>
-                    <span>→</span>
-                </a>
-
-            </div>
-
-            <a class="text-link" href="/notes/">
-                View all notes →
-            </a>
-        </div>
-    </section>
-
-
-    <!-- About -->
-    <section class="home-section compact-section">
-        <div class="section-label">
-            About
-        </div>
-
-        <div class="section-content">
-            <p>
-                I am currently pursuing my PhD at
-                <strong>IMT Atlantique</strong> in Nantes, France, under the supervision of
-                <strong><a href="http://menaud.fr/">Professor Jean-Marc Menaud</a></strong>.
-            </p>
-
-            
-
-            <p>
-                My research lies at the intersection of cloud computing,
-                serverless computing, energy efficiency, and software systems.
-            </p>
-
-            <a class="text-link" href="/about/">
-                More about me →
-            </a>
+            <a class="text-link" href="{{ "publications/" | relURL }}">All publications &amp; talks →</a>
         </div>
     </section>
 
 
     <!-- Contact -->
     <section class="home-contact">
-        <p class="section-label">
-            Contact
-        </p>
+        <p class="section-label">Contact</p>
 
-        <h2>
-            Interested in research collaboration?
-        </h2>
+        <h2>{{ $p.contact.title }}</h2>
 
-        <p>
-            I am open to discussions about cloud computing, serverless systems,
-            energy efficiency, and related research topics.
-        </p>
+        <p>{{ $p.contact.text | markdownify }}</p>
 
-        <a class="text-link" href="mailto:celeste-precil.guimapi-guefack@imt-atlantique.fr">
-            Get in touch →
-        </a>
+        <a class="text-link" href="mailto:{{ site.Params.email }}">{{ site.Params.email }} →</a>
     </section>
 
 </main>

@@ -1,90 +1,51 @@
 ---
 title: "Home"
+
+# The homepage is rendered by layouts/index.html from the fields below.
+# The markdown body of this file is intentionally empty: edit the text here,
+# not in the layout. Projects and publications are pulled from their own
+# pages (content/projects/) and from data/publications.yaml.
+
+hero:
+  eyebrow: "PhD Student · Energy-efficient Cloud & Serverless Computing"
+  intro:
+    - >-
+      I am a PhD student at **IMT Atlantique** in Nantes, France, working on
+      the energy efficiency of applications in the cloud.
+    - >-
+      My current work focuses on serverless platforms: how to enforce a
+      **strict energy budget** on function executions without breaking the
+      consistency of the applications that run on them.
+
+research:
+  title: "Energy efficiency of applications in the cloud"
+  text:
+    - >-
+      My thesis studies how cloud applications consume energy and how software
+      can keep that consumption under control. Serverless computing is my main
+      experimental ground: functions are short-lived, elastic and share the
+      same machines, which makes their energy hard to account for — and even
+      harder to bound.
+  current:
+    meta: "Current work · Article in preparation"
+    title: "Strict energy budgets for serverless platforms"
+    text: >-
+      Existing energy-budget policies for serverless platforms account for
+      consumption after the fact, so an execution can overrun its budget while
+      it runs. I am building a system for Apache OpenWhisk that turns the
+      budget into a guarantee — without leaving multi-step workflows in an
+      inconsistent state when an execution has to be stopped.
+    stack: "Apache OpenWhisk · Go · Python · Linux · Grid'5000"
+    link: "/projects/energy-budgets-serverless/"
+
+# Paths of the project pages shown as cards, in order.
+projects:
+  - "/projects/energy-budgets-serverless"
+  - "/projects/sorting-algorithms-energy"
+
+contact:
+  title: "Interested in research collaboration?"
+  text: >-
+    I am happy to discuss energy-efficient computing, serverless systems and
+    experimental research on real testbeds.
 ---
-
-## Research
-
-My PhD research focuses on the energy efficiency of cloud applications, with a particular focus on serverless computing.
-
-I study how software-level mechanisms can be used to monitor and control the power consumption of serverless applications while considering the trade-offs between **energy consumption, performance, and resource utilisation**.
-
-### Research interests
-
-- Serverless Computing
-- Cloud Computing
-- Energy Efficiency
-- Power & Performance Management
-- Software-based Power Capping
-- Cloud Resource Management
-- Kubernetes & OpenWhisk
-
----
-
-## Current Research
-
-### Software-based Power Capping for Serverless Applications
-
-**PhD Research · IMT Atlantique**
-
-Cloud and serverless platforms dynamically allocate computing resources according to application demand. However, managing their energy consumption while maintaining application performance remains a challenging problem.
-
-My research explores software-based approaches for controlling the power consumption of serverless applications while preserving their performance requirements.
-
-The objective is to develop mechanisms capable of dynamically adapting application execution and resource usage according to power constraints.
-
-**Technologies:** Kubernetes · OpenWhisk · Docker · Linux · Python
-
----
-
-## Research Projects
-
-### Energy-efficient Serverless Computing
-
-Experimental research on the relationship between application characteristics, resource utilisation, performance, and power consumption in serverless environments.
-
-**Focus:** Serverless · OpenWhisk · Kubernetes · Energy Measurement · Performance Evaluation
-
-### Cloud Application Performance & Energy Analysis
-
-Research activities focused on experimentally characterising cloud applications and understanding how workload and application behaviour affect resource consumption and performance.
-
-**Focus:** Cloud Computing · Performance Evaluation · Resource Utilisation · Energy Efficiency
-
----
-
-## Publications
-
-### Research in progress
-
-I am currently finalising my first research work resulting from my PhD, focusing on energy efficiency and power management in serverless computing.
-
-**Publications and preprints will be listed here as they become available.**
-
----
-
-## Technical Notes
-
-I occasionally write short technical notes about tools, concepts, and technologies that are useful in my research.
-
-These notes cover topics related to **cloud computing, serverless systems, Linux, software development, and research experimentation**.
-
-### Recent notes
-
-- **Understanding Git for Research Projects**
-- **Getting Started with OpenWhisk**
-
----
-
-## About
-
-I am currently pursuing my PhD at **IMT Atlantique** in Nantes, France, under the supervision of **Professor [Jean-Marc Menaud](http://menaud.fr/)**.
-
-My research lies at the intersection of **cloud computing, serverless computing, energy efficiency, and software systems**.
-
----
-
-## Contact
-
-I am open to discussions about research, cloud and serverless computing, and potential collaborations.
-
-**Nantes, France**

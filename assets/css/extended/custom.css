@@ -28,8 +28,38 @@
    --------------------------------------------------------- */
 
 .home-hero {
-    max-width: 850px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 3rem;
     padding: 5rem 0 6rem;
+}
+
+.home-hero-text {
+    max-width: 760px;
+}
+
+.home-photo {
+    width: 200px;
+    height: 200px;
+    margin-top: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.home-supervisors {
+    font-size: 0.95rem;
+    color: var(--secondary);
+}
+
+.home-hero .social-icons {
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.home-hero .social-icons a:first-child {
+    padding-left: 0;
 }
 
 .home-eyebrow {
@@ -152,7 +182,20 @@
    --------------------------------------------------------- */
 
 .research-feature {
-    max-width: 760px;
+    margin-top: 2.5rem;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.research-feature h3 {
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.research-feature .technology-line {
+    margin: 1.5rem 0 0;
 }
 
 .project-meta {
@@ -225,6 +268,57 @@
 
     font-size: 0.75rem !important;
     color: var(--secondary);
+}
+
+
+/* ---------------------------------------------------------
+   Publications (partial "publication.html")
+   --------------------------------------------------------- */
+
+.pub + .pub {
+    margin-top: 2rem;
+}
+
+.pub p {
+    margin: 0 0 0.35rem;
+}
+
+.pub-meta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.pub-kind {
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.72rem;
+}
+
+.post-content .pub-title,
+.pub-title {
+    margin: 0.4rem 0 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.pub-authors,
+.pub-venue,
+.pub-summary {
+    font-size: 0.92rem;
+}
+
+.pub-venue {
+    font-style: italic;
+    color: var(--secondary);
+}
+
+.pub-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 
@@ -381,7 +475,16 @@
 @media (max-width: 750px) {
 
     .home-hero {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0;
         padding: 3.5rem 0 4rem;
+    }
+
+    .home-photo {
+        width: 112px;
+        height: 112px;
+        margin: 0 0 1.5rem;
     }
 
     .home-section {
