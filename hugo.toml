@@ -35,7 +35,12 @@ theme = "PaperMod"
     hideSummary = false
 
     [params.assets]
+        # One SVG icon for every slot PaperMod links in <head>.
         favicon = "/favicon.svg"
+        favicon16x16 = "/favicon.svg"
+        favicon32x32 = "/favicon.svg"
+        apple_touch_icon = "/favicon.svg"
+        safari_pinned_tab = "/favicon.svg"
 
     [[params.supervisors]]
         name = "Jean-Marc Menaud"
