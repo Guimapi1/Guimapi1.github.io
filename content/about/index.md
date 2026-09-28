@@ -1,91 +1,38 @@
 ---
 title: "About"
-description: "About Celeste Guimapi, PhD student working on energy-efficient cloud and serverless computing."
+description: "Background, current work and teaching."
+hidemeta: true
+ShowPostNavLinks: false
 ---
 
 ## About me
 
-I am a PhD student at **IMT Atlantique** in Nantes, France, working on energy-efficient cloud and serverless computing.
+I am a PhD student in computer science at **IMT Atlantique** in Nantes, France, in the STACK team of the LS2N laboratory. My thesis, *Energy Efficiency of Applications in the Cloud*, started in January 2025 under the supervision of [Jean-Marc Menaud](http://menaud.fr/) and [Remous-Aris Koutsiamanis](https://ariskou.com/).
 
-My research focuses on **software-based power capping mechanisms for serverless applications**, with the objective of dynamically controlling power consumption while maintaining application performance.
+## Path
 
-My work lies at the intersection of:
+I studied computer science at the **École Nationale Polytechnique de Yaoundé** (Cameroon), where I obtained my Master's degree in 2024. During my studies, I worked on projects in software engineering, data science and IoT, and did a data-science internship at Boissons du Cameroun on fault diagnosis in an industrial brewing process.
 
-- Cloud Computing
-- Serverless Computing
-- Energy Efficiency
-- Power Management
-- Performance Evaluation
-- Cloud Resource Management
-
-## Research
-
-My PhD research investigates how software-level mechanisms can be used to monitor and control the power consumption of serverless applications.
-
-A particular focus of my work is understanding the relationship between:
-
-- application workload;
-- resource utilisation;
-- application performance;
-- power consumption;
-- energy consumption.
-
-The goal is to explore approaches that can dynamically adapt resource usage and execution behaviour according to power constraints while respecting application performance requirements.
-
-My experimental work primarily uses **Apache OpenWhisk** as a serverless computing platform, together with containerised and cloud-native technologies.
-
-## Technical interests
-
-My research requires both experimental and software engineering skills.
-
-Technologies and tools that I work with or use in my research include:
-
-**Serverless & Cloud**
-
-Apache OpenWhisk · Kubernetes · Docker
-
-**Programming & Experimentation**
-
-Python · Shell · Git
-
-**Research**
-
-Performance evaluation · Resource monitoring · Energy measurement · Experimental analysis
-
-I also have knowledge of other serverless platforms, including **Knative** and **OpenFaaS**.
+In 2024, I joined IMT Atlantique for a research internship on the energy consumption of software. That work — on how the disorder of input data affects the energy of sorting algorithms — was presented at **COMPAS 2024** in Nantes, and led me to start my PhD with the same supervisors.
 
 ## Current work
 
-I am currently finalising the experimental work conducted during the first part of my PhD and preparing my first research work related to my doctoral research.
+I currently work on serverless platforms, on how to enforce a **strict energy budget** on function executions without breaking the consistency of the applications that run on them. The system is built on Apache OpenWhisk and evaluated on the Grid'5000 testbed; an article is in preparation. [More on my research →](/research/)
 
-My current interests include software-based power management for serverless applications, energy-performance trade-offs, and experimental approaches to energy-efficient cloud computing.
+## Teaching
 
-## Previous research
-
-Before my current PhD research, I contributed to research on the energy consumption of software.
-
-In 2024, I co-authored a paper presented at **COMPAS 2024** in Nantes:
-
-> *Étude énergétique des algorithmes de tri en fonction du désordre dans les données à trier*
-
-The work investigated the energy consumption of sorting algorithms according to the disorder present in the data being sorted.
-
-[View the publication on HAL →](https://hal.science/hal-05641224v1)
+- **Smart Grid Project** — lab sessions for first-year students (L1), IMT Atlantique, 2025 (17 h).
 
 ## Beyond research
 
-I am interested in the intersection between **research and software engineering**.
+I like building the systems I study, and treating research software with the same care as production software. To strengthen these practices, I am currently completing the [IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/specializations/devops-and-software-engineering) on Coursera.
 
-I particularly enjoy working on experimental systems, implementing research ideas, designing experiments, analysing measurements, and turning experimental results into reproducible research artifacts.
+In Cameroon, I founded **DeepTutoring**, a home-tutoring group for students in preparatory classes.
+
+## Languages
+
+French (native) · English (B2)
 
 ## Contact
 
-I am open to discussions about:
-
-- Cloud and serverless computing
-- Energy-efficient computing
-- Power and performance management
-- Experimental research
-- Research collaborations
-
-You can find my research and technical work through the links available on this website.
+[celeste-precil.guimapi-guefack@imt-atlantique.fr](mailto:celeste-precil.guimapi-guefack@imt-atlantique.fr) · [ORCID](https://orcid.org/0009-0009-6548-0635) · [GitHub](https://github.com/Guimapi1)
