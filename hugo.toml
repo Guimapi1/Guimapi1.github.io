@@ -1,5 +1,7 @@
+# TODO: replace with the production URL once the site is deployed
+# (canonical links, sitemap and RSS are built from it).
 baseURL = "http://localhost:1313/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Celeste Guimapi"
 
 theme = "PaperMod"
@@ -7,8 +9,16 @@ theme = "PaperMod"
 [params]
     env = "production"
 
-    description = "PhD student working on energy-efficient cloud and serverless computing."
+    # Single source for the one-line profile: reused by the homepage,
+    # the <meta name="description"> fallback and the footer.
+    description = "PhD student at IMT Atlantique working on the energy efficiency of cloud and serverless applications."
     author = "Celeste Guimapi"
+
+    affiliation = "IMT Atlantique · LS2N (STACK team) · Nantes, France"
+    email = "celeste-precil.guimapi-guefack@imt-atlantique.fr"
+
+    # Replace with a real photo (e.g. /images/profile/celeste.jpg) when available.
+    profileImage = "/images/profile/placeholder.svg"
 
     defaultTheme = "auto"
     disableThemeToggle = false
@@ -24,21 +34,33 @@ theme = "PaperMod"
     hidemeta = false
     hideSummary = false
 
-    [params.homeInfoParams]
-        Title = "PhD Student · Cloud Computing · Serverless · Energy Efficiency"
-        Content = """
-I am a PhD student at **IMT Atlantique** in Nantes, France, working on energy-efficient cloud and serverless computing.
+    [params.assets]
+        favicon = "/favicon.svg"
 
-My research focuses on **software-based power capping mechanisms for serverless applications**, with the aim of dynamically controlling power consumption while maintaining application performance.
-"""
+    [[params.supervisors]]
+        name = "Jean-Marc Menaud"
+        role = "Professor, IMT Atlantique"
+        url = "http://menaud.fr/"
 
-    [[params.socialIcons]]
-        name = "github"
-        url = "https://github.com/Guimapi1"
+    [[params.supervisors]]
+        name = "Remous-Aris Koutsiamanis"
+        role = "Senior Lecturer, IMT Atlantique"
+        url = "https://ariskou.com/"
 
     [[params.socialIcons]]
         name = "email"
+        title = "Email"
         url = "mailto:celeste-precil.guimapi-guefack@imt-atlantique.fr"
+
+    [[params.socialIcons]]
+        name = "orcid"
+        title = "ORCID"
+        url = "https://orcid.org/0009-0009-6548-0635"
+
+    [[params.socialIcons]]
+        name = "github"
+        title = "GitHub"
+        url = "https://github.com/Guimapi1"
 
 [menu]
 
@@ -55,28 +77,16 @@ My research focuses on **software-based power capping mechanisms for serverless 
         weight = 20
 
     [[menu.main]]
-        identifier = "projects"
-        name = "Projects"
-        url = "/projects/"
-        weight = 30
-
-    [[menu.main]]
         identifier = "publications"
         name = "Publications"
         url = "/publications/"
-        weight = 40
-
-    [[menu.main]]
-        identifier = "notes"
-        name = "Notes"
-        url = "/notes/"
-        weight = 50
+        weight = 30
 
     [[menu.main]]
         identifier = "cv"
         name = "CV"
         url = "/cv/"
-        weight = 60
+        weight = 40
 
 [markup]
 
