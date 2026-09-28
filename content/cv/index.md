@@ -4,6 +4,7 @@ description: "Academic CV — PhD student in computer science at IMT Atlantique.
 hidemeta: true
 ShowPostNavLinks: false
 ShowBreadCrumbs: false
+printHeader: true
 ---
 
 ## Profile

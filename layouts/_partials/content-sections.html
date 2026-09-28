@@ -1,0 +1,18 @@
+{{- /*
+  Renders page content with the homepage grammar: each <h2> starts a
+  <section class="content-section"> whose heading becomes a side label
+  (see custom.css). Anything before the first <h2> becomes a lead block.
+  Context: the page.
+*/ -}}
+{{- $html := string (partial "anchored_headings.html" .Content) -}}
+{{- if eq .Section "notes" -}}
+  {{- $html | safeHTML -}}
+{{- else -}}
+  {{- range $i, $part := split $html "<h2" -}}
+    {{- if eq $i 0 -}}
+      {{- with strings.TrimSpace $part }}<div class="content-lead">{{ . | safeHTML }}</div>{{ end -}}
+    {{- else -}}
+      {{- print `<section class="content-section"><h2` $part `</section>` | safeHTML -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

@@ -1,6 +1,8 @@
 ---
 title: "Research"
 description: "PhD research on the energy efficiency of applications in the cloud, with a focus on serverless platforms."
+cascade:
+  hidemeta: true
 ---
 
 ## Thesis

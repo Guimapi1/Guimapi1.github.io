@@ -3,16 +3,16 @@ title: "Energy Efficiency of Applications in the Cloud"
 description: "PhD thesis at IMT Atlantique (LS2N, STACK team), started in January 2025."
 hidemeta: true
 ShowPostNavLinks: false
+facts:
+  - label: "Institution"
+    value: "IMT Atlantique, Nantes — LS2N, STACK team"
+  - label: "Started"
+    value: "January 2025"
+  - label: "Supervisors"
+    value: "[Jean-Marc Menaud](http://menaud.fr/) (Professor) · [Remous-Aris Koutsiamanis](https://ariskou.com/) (Senior Lecturer)"
+  - label: "Goal"
+    value: "Reduce the energy consumption and carbon footprint of cloud applications"
 ---
-
-## The thesis
-
-| | |
-|---|---|
-| **Institution** | IMT Atlantique, Nantes — LS2N, STACK team |
-| **Started** | January 2025 |
-| **Supervisors** | [Jean-Marc Menaud](http://menaud.fr/) (Professor) · [Remous-Aris Koutsiamanis](https://ariskou.com/) (Senior Lecturer) |
-| **Goal** | Reduce the energy consumption and carbon footprint of cloud applications |
 
 ## Motivation
 

@@ -9,12 +9,28 @@
    --------------------------------------------------------- */
 
 :root {
-    --main-width: 900px;
+    --main-width: 1000px;
     --nav-width: 1100px;
+    --text-width: 720px;
+    --label-width: 160px;
+
+    /* Single accent colour (muted petrol blue), used sparingly:
+       section labels, links, key-facts box. */
+    --accent: #1f5f73;
+    --accent-soft: rgba(31, 95, 115, 0.06);
+    --accent-line: rgba(31, 95, 115, 0.35);
 }
 
-.main {
-    max-width: 1100px;
+:root[data-theme="dark"] {
+    --accent: #8cc3d2;
+    --accent-soft: rgba(140, 195, 210, 0.07);
+    --accent-line: rgba(140, 195, 210, 0.4);
+}
+
+/* PaperMod gives list pages a grey background in light mode;
+   keep every page on the same background. */
+.list {
+    background: var(--theme);
 }
 
 .academic-home {
@@ -67,7 +83,7 @@
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.02em;
-    color: var(--secondary);
+    color: var(--accent);
 }
 
 .home-hero h1 {
@@ -106,8 +122,13 @@
 }
 
 .home-button.primary {
-    background: var(--primary);
+    border-color: var(--accent);
+    background: var(--accent);
     color: var(--theme);
+}
+
+.home-button.primary:hover {
+    opacity: 0.9;
 }
 
 
@@ -133,7 +154,7 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
 
-    color: var(--secondary);
+    color: var(--accent);
 }
 
 .section-content {
@@ -151,29 +172,6 @@
 
 .section-content p {
     line-height: 1.75;
-}
-
-
-/* ---------------------------------------------------------
-   Research
-   --------------------------------------------------------- */
-
-.research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-
-    margin: 2rem 0;
-}
-
-.research-tags span {
-    padding: 0.35rem 0.65rem;
-
-    border: 1px solid var(--border);
-    border-radius: 999px;
-
-    font-size: 0.8rem;
-    color: var(--secondary);
 }
 
 
@@ -279,7 +277,8 @@
     margin-top: 2rem;
 }
 
-.pub p {
+.pub p,
+.md-content .pub p:not(:last-child) {
     margin: 0 0 0.35rem;
 }
 
@@ -297,7 +296,7 @@
     font-size: 0.72rem;
 }
 
-.post-content .pub-title,
+.md-content .pub .pub-title,
 .pub-title {
     margin: 0.4rem 0 0.5rem;
     font-size: 1.2rem;
@@ -326,13 +325,16 @@
    Links
    --------------------------------------------------------- */
 
-.text-link {
+.text-link,
+.md-content a.text-link {
     display: inline-block;
 
     margin-top: 1rem;
 
     font-size: 0.9rem;
     font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
 }
 
 .text-link:hover {
@@ -407,9 +409,18 @@
     color: var(--secondary);
 }
 
+/* ---------------------------------------------------------
+   Footer (layouts/_partials/footer.html)
+   --------------------------------------------------------- */
+
 .site-footer {
-    margin-top: 5rem;
-    padding: 2.5rem 0 2rem;
+    max-width: calc(var(--main-width) + var(--gap) * 2);
+    margin: 3rem auto 0;
+    padding: 2.5rem var(--gap) 2rem;
+}
+
+.site-footer .footer-inner {
+    padding-top: 2.5rem;
     border-top: 1px solid var(--border);
 }
 
@@ -453,7 +464,6 @@
 .footer-bottom {
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--border);
     font-size: 0.75rem;
     color: var(--secondary);
 }
@@ -466,6 +476,229 @@
     .footer-links {
         gap: 1rem;
     }
+}
+
+
+/* ---------------------------------------------------------
+   Content pages: header
+   --------------------------------------------------------- */
+
+.page-header,
+.post-header {
+    margin: 3rem 0 2.5rem;
+}
+
+.page-header h1,
+.post-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+.post-description {
+    max-width: var(--text-width);
+    margin-top: 0.9rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--secondary);
+}
+
+.breadcrumbs {
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.breadcrumbs a {
+    color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+   Content pages: side-labelled sections
+   (layouts/_partials/content-sections.html)
+   --------------------------------------------------------- */
+
+.md-content a:not(.anchor, .text-link) {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--accent-line);
+    text-underline-offset: 0.25em;
+}
+
+.content-lead {
+    max-width: var(--text-width);
+    margin-bottom: 2.5rem;
+}
+
+.content-section {
+    display: grid;
+    grid-template-columns: var(--label-width) minmax(0, 1fr);
+    column-gap: 3rem;
+
+    padding: 2.5rem 0;
+
+    border-top: 1px solid var(--border);
+}
+
+.content-section > * {
+    grid-column: 2;
+    max-width: var(--text-width);
+}
+
+.content-section > .project-grid {
+    max-width: none;
+}
+
+.md-content .content-section > h2 {
+    grid-column: 1;
+    grid-row: 1 / span 60;
+
+    margin: 0;
+    padding-top: 0.35rem;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: var(--accent);
+}
+
+.content-section > h2 .anchor {
+    display: none;
+}
+
+.content-section > h2 + * {
+    margin-top: 0;
+}
+
+.md-content .content-section h3 {
+    margin: 1.75rem 0 0.6rem;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+}
+
+.md-content .content-section > h3:first-of-type {
+    margin-top: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Key facts box (layouts/_partials/page-facts.html)
+   --------------------------------------------------------- */
+
+.page-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem 2rem;
+
+    margin: 0 0 2.5rem;
+    padding: 1.25rem 1.5rem;
+
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    background: var(--accent-soft);
+}
+
+.page-facts dt {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--secondary);
+}
+
+.page-facts dd {
+    margin: 0.3rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.page-facts a {
+    color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+   CV entries (layouts/_shortcodes/cv-entry.html)
+   --------------------------------------------------------- */
+
+.cv-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1.5rem;
+}
+
+.cv-entry + .cv-entry {
+    margin-top: 1.6rem;
+}
+
+.cv-dates {
+    grid-column: 2;
+    grid-row: 1;
+
+    padding-top: 0.2rem;
+
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: var(--secondary);
+}
+
+.cv-body {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.md-content .cv-body h3 {
+    margin: 0 0 0.2rem;
+    font-size: 1.05rem;
+}
+
+.md-content .cv-body .cv-org {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+.cv-body p,
+.cv-body li {
+    font-size: 0.93rem;
+    line-height: 1.6;
+}
+
+.print-header {
+    display: none;
+}
+
+
+/* ---------------------------------------------------------
+   Notes list
+   --------------------------------------------------------- */
+
+.notes-list small {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    color: var(--secondary);
+}
+
+
+/* ---------------------------------------------------------
+   Social icons
+   --------------------------------------------------------- */
+
+.social-icons a {
+    color: var(--secondary);
+}
+
+.social-icons a:hover {
+    color: var(--accent);
 }
 
 /* ---------------------------------------------------------
@@ -507,5 +740,117 @@
 
     .home-contact {
         padding: 4rem 0;
+    }
+
+    .content-section {
+        display: block;
+        padding: 2rem 0;
+    }
+
+    .md-content .content-section > h2 {
+        margin-bottom: 1.25rem;
+    }
+
+    .cv-entry {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-dates {
+        grid-column: 1;
+        padding: 0 0 0.2rem;
+    }
+
+    .cv-body {
+        grid-row: 2;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Print (used to generate static/files/cv.pdf from /cv/)
+   --------------------------------------------------------- */
+
+@media print {
+    :root,
+    :root[data-theme="dark"] {
+        --theme: #fff;
+        --entry: #fff;
+        --primary: #111;
+        --content: #222;
+        --secondary: #555;
+        --border: #d9d9d9;
+        --accent: #1f5f73;
+        --accent-soft: transparent;
+        --label-width: 110px;
+        color-scheme: light;
+    }
+
+    @page {
+        margin: 14mm 15mm;
+    }
+
+    body {
+        background: #fff;
+        font-size: 10pt;
+    }
+
+    .header,
+    .site-footer,
+    .breadcrumbs,
+    .top-link,
+    .post-footer,
+    .anchor {
+        display: none !important;
+    }
+
+    .main {
+        max-width: none;
+        padding: 0;
+    }
+
+    .post-single:has(.print-header) .post-header {
+        display: none;
+    }
+
+    .print-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        margin-bottom: 1rem;
+    }
+
+    .print-header strong {
+        font-size: 22pt;
+        letter-spacing: -0.02em;
+        color: var(--primary);
+    }
+
+    .print-header span {
+        font-size: 9pt;
+        color: var(--secondary);
+    }
+
+    .content-section {
+        column-gap: 1.25rem;
+        padding: 0.75rem 0;
+    }
+
+    .content-section > * {
+        max-width: none;
+    }
+
+    .cv-entry,
+    .pub {
+        break-inside: avoid;
+    }
+
+    .cv-entry + .cv-entry,
+    .pub + .pub {
+        margin-top: 0.7rem;
+    }
+
+    .md-content a:not(.anchor) {
+        color: inherit;
+        text-decoration: none;
     }
 }

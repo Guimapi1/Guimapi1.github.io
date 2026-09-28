@@ -1,0 +1,17 @@
+{{- /* Key facts shown under the title of project / thesis pages.
+       Uses .Params.facts ([{label, value}]) or, for project pages,
+       period / status / platform / stack. Values are markdown. */ -}}
+{{- $facts := .Params.facts | default slice -}}
+{{- if not $facts -}}
+  {{- range slice (slice "Period" "period") (slice "Status" "status") (slice "Platform" "platform") (slice "Stack" "stack") -}}
+    {{- $label := index . 0 -}}
+    {{- with index $.Params (index . 1) }}{{ $facts = $facts | append (dict "label" $label "value" .) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $facts }}
+<dl class="page-facts">
+  {{- range . }}
+  <div><dt>{{ .label }}</dt><dd>{{ .value | markdownify }}</dd></div>
+  {{- end }}
+</dl>
+{{- end }}
