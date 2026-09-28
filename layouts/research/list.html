@@ -1,0 +1,35 @@
+{{- define "main" }}
+{{- /* Research section: overview text from content/research/_index.md,
+       followed by the project pages (content/projects/), which are not
+       in the main menu. */ -}}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . | markdownify }}</div>
+  {{- end }}
+</header>
+
+<div class="post-content md-content">
+  {{- partial "anchored_headings.html" .Content -}}
+
+  {{- with site.GetPage "/projects" }}
+  <h2 id="projects">Projects</h2>
+  <div class="project-grid">
+    {{- range $i, $page := .Pages.ByWeight }}
+    <article class="project-card">
+      <p class="project-number">{{ printf "%02d" (add $i 1) }}{{ with .Params.period }} · {{ . }}{{ end }}</p>
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Params.summary | default .Description }}</p>
+      {{- with .Params.keywords }}
+      <p class="project-focus">{{ delimit . " · " }}</p>
+      {{- end }}
+      <a class="text-link" href="{{ .RelPermalink }}">View project →</a>
+    </article>
+    {{- end }}
+  </div>
+  {{- end }}
+</div>
+
+{{- end }}

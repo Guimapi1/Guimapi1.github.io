@@ -1,154 +1,38 @@
 ---
-title: "Software-based Power Capping for Serverless Applications"
-description: "PhD research on software-based power capping mechanisms for serverless applications."
+title: "Energy Efficiency of Applications in the Cloud"
+description: "PhD thesis at IMT Atlantique (LS2N, STACK team), started in January 2025."
+hidemeta: true
+ShowPostNavLinks: false
 ---
 
-## Overview
+## The thesis
 
-My PhD research focuses on **energy-efficient cloud and serverless computing**, with a particular interest in software-based mechanisms for controlling the power consumption of serverless applications.
-
-The objective is to investigate how software-level mechanisms can dynamically control power consumption while maintaining acceptable application performance.
-
-My experimental work primarily uses **Apache OpenWhisk** as the serverless computing platform.
-
----
+| | |
+|---|---|
+| **Institution** | IMT Atlantique, Nantes — LS2N, STACK team |
+| **Started** | January 2025 |
+| **Supervisors** | [Jean-Marc Menaud](http://menaud.fr/) (Professor) · [Remous-Aris Koutsiamanis](https://ariskou.com/) (Senior Lecturer) |
+| **Goal** | Reduce the energy consumption and carbon footprint of cloud applications |
 
 ## Motivation
 
-Cloud and serverless platforms dynamically allocate computing resources according to application demand.
+Cloud platforms make it easy to scale applications, but they hide where energy goes. Power is measured per machine, while applications are spread across shared servers, containers and short-lived functions. Reducing the energy of cloud applications therefore requires, first, **attributing energy to the right execution**, and second, **acting on it from software** — without degrading the service the application provides.
 
-This elasticity can improve resource utilisation and application scalability, but it also raises questions about energy consumption and power management.
+## Focus: serverless platforms
 
-For energy-efficient computing, reducing power consumption cannot be considered independently from application performance.
+Serverless computing is the main experimental ground of the thesis. Functions are short-lived, highly elastic and share the same machines, which makes their energy both important to control and difficult to bound.
 
-A reduction in power consumption may, for example, affect:
+My current contribution addresses **strict energy budgets**: guaranteeing that an execution never exceeds the energy it was allocated, while keeping multi-step applications consistent when an execution has to be stopped. It is implemented on Apache OpenWhisk and evaluated on Grid'5000.
 
-- execution time;
-- throughput;
-- resource utilisation;
-- latency;
-- application-level performance.
+[Project page →]({{< relref "/projects/energy-budgets-serverless" >}})
 
-My research therefore investigates the relationship between **power consumption, energy consumption, resource utilisation, and application performance**.
+## Method
 
----
+- **Build real systems**, not simulations: mechanisms are implemented in an actual serverless platform.
+- **Measure on real hardware**: every experiment runs on the Grid'5000 testbed, where several issues only appear under real load.
+- **Make design decisions explicit**: each architecture choice is documented with its justification, and the specification is kept in sync with the code.
+- **Check that experiments test what they claim**: each scenario declares the state it is meant to exercise, and the experimental harness verifies that this state was actually reached.
 
-## Research Problem
+## Background
 
-The central research question of my PhD is how software-level mechanisms can be used to control the power consumption of serverless applications while respecting application performance requirements.
-
-This involves considering several dimensions simultaneously:
-
-```text
-Application workload
-        ↓
-Resource utilisation
-        ↓
-Power consumption
-        ↓
-Application performance
-        ↓
-Energy consumption
-```
-
-The challenge is to identify control mechanisms that can adapt application execution or resource usage according to power constraints without introducing unacceptable performance degradation.
-
----
-
-## Research Approach
-
-My research follows an experimental approach based on the observation, measurement, and analysis of serverless applications.
-
-The main steps include:
-
-1. Characterising serverless workloads and application behaviour.
-2. Measuring resource utilisation and application performance.
-3. Studying power and energy consumption.
-4. Analysing power-performance trade-offs.
-5. Investigating software-based mechanisms for power control.
-6. Evaluating these mechanisms experimentally.
-
-The experiments are designed to make it possible to compare different configurations under controlled workloads and measurement conditions.
-
----
-
-## Experimental Environment
-
-The main serverless platform used in my research experiments is **Apache OpenWhisk**.
-
-The broader experimental environment includes technologies and tools such as:
-
-**Serverless**
-
-- Apache OpenWhisk
-
-**Containers & Cloud Infrastructure**
-
-- Docker · Kubernetes
-
-**Programming & Scripting**
-
-- Python · Shell
-
-**System & Development Tools**
-
-- Linux · Git
-
-These technologies support the implementation, deployment, monitoring, and evaluation of experimental workloads.
-
-I also have knowledge of other serverless platforms, including Knative and OpenFaaS, which provide useful perspectives for understanding different approaches to serverless computing.
-
----
-
-## Power and Performance
-
-An important aspect of the research is the relationship between power consumption and application performance.
-
-A power constraint may influence the amount of computing resources available to an application or the way in which workloads are executed.
-
-The evaluation therefore considers several complementary metrics, including:
-
-- power consumption;
-- energy consumption;
-- execution time;
-- latency;
-- throughput;
-- CPU utilisation;
-- memory utilisation;
-- resource allocation.
-
-The objective is not simply to minimise power consumption, but to study the trade-offs between energy efficiency and application performance.
-
----
-
-## Current Research
-
-My current work focuses on the experimental study of energy consumption and power management in serverless computing.
-
-The research involves developing and evaluating experimental approaches for controlling power consumption at the software level.
-
-A particular focus is placed on understanding how changes in resource utilisation and execution behaviour affect both power consumption and application performance.
-
-The results of these experiments are intended to contribute to the development of more energy-efficient approaches to serverless computing.
-
----
-
-## Research Directions
-
-The research can be developed along several directions, including:
-
-- dynamic power-aware control of serverless workloads;
-- software-based power management;
-- energy-aware resource management;
-- power-performance trade-offs;
-- experimental evaluation of serverless applications;
-- energy-efficient cloud resource management;
-- integration of power constraints into cloud and serverless systems.
-
-These directions aim to contribute to a better understanding of how software systems can participate in the management of energy consumption in cloud environments.
-
----
-
-## Research Keywords
-
-Cloud Computing · Serverless Computing · Apache OpenWhisk · Energy Efficiency · Power Management · Power Capping · Performance Evaluation · Cloud Resource Management
+Before the PhD, my research internship at IMT Atlantique (2024) studied the energy consumption of sorting algorithms and led to a paper at COMPAS 2024 — see [the project]({{< relref "/projects/sorting-algorithms-energy" >}}).
