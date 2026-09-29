@@ -38,7 +38,7 @@ Supervisors: [Jean-Marc Menaud](http://menaud.fr/) (Professor) and [Remous-Aris 
 
 ## Teaching
 
-{{< cv-entry title="Smart Grid Project" org="IMT Atlantique · first year (L1) · lab sessions, 17 h" dates="Apr – May 2025" >}}
+{{< cv-entry title="Smart Grid Project" org="IMT Atlantique · first year (L1) · lab sessions, 34 h (17 h * 2)" dates="Apr – May 2025 & Apr – May 2026" >}}
 {{< /cv-entry >}}
 
 ## Publications & Talks
@@ -74,8 +74,8 @@ Python · Go · C · Java · SQL · JavaScript / TypeScript
 {{< /cv-entry >}}
 
 {{< cv-entry title="Systems & research infrastructure" dates="" >}}
-Apache OpenWhisk · Docker · Linux · Grid'5000 · perf · Git\
-Also familiar with Knative, OpenFaaS and Hadoop.
+Apache OpenWhisk · Docker · Linux · Kubernates · perf · Git\
+Also familiar with Knative, OpenFaaS.
 {{< /cv-entry >}}
 
 {{< cv-entry title="Software engineering" dates="" >}}

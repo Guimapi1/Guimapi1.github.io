@@ -17,7 +17,7 @@ The goal of the thesis is to reduce the energy consumption of cloud applications
 
 ## Current focus
 
-I currently work on **serverless platforms**, where I study how to enforce a strict energy budget on function executions without breaking the consistency of the applications that run on them. The system is implemented on Apache OpenWhisk and evaluated on the Grid'5000 testbed; an article is in preparation.
+I currently work on **serverless platforms**, where I study how to enforce a strict energy budget on function executions without breaking the consistency of the applications that run on them. 
 
 ## Interests
 

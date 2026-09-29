@@ -6,7 +6,7 @@ period: "2025 – present"
 status: "Implementation complete · experimental campaign in progress · article in preparation"
 platform: "Apache OpenWhisk on Grid'5000"
 keywords: ["Serverless", "Energy budgets", "Scheduling", "OpenWhisk"]
-stack: "Go · Python · Linux · Apache OpenWhisk"
+stack: "Go · Python · Kubernates · Apache OpenWhisk"
 weight: 1
 aliases:
   - /projects/energy-efficient-serverless/
@@ -28,8 +28,3 @@ The question I address is therefore: **how can a serverless platform guarantee a
 
 I am designing and implementing a system for **Apache OpenWhisk** that treats the energy budget as an invariant rather than an optimisation target. It combines scheduling decisions with enforcement inside the function runtime, and relies on information declared by developers about what each function may safely undergo if it has to be interrupted.
 
-The work follows an explicit engineering methodology: architecture decisions are documented one by one, the specification is kept in sync with the code, and every mechanism is verified on a real cluster of the **Grid'5000** testbed — not only in unit tests.
-
-## Status
-
-The system is implemented and a full experimental campaign is under way on Grid'5000. An article presenting the approach and its evaluation is in preparation; details will be published here once it is available.

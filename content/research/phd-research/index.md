@@ -31,7 +31,6 @@ My current contribution addresses **strict energy budgets**: guaranteeing that a
 - **Build real systems**, not simulations: mechanisms are implemented in an actual serverless platform.
 - **Measure on real hardware**: every experiment runs on the Grid'5000 testbed, where several issues only appear under real load.
 - **Make design decisions explicit**: each architecture choice is documented with its justification, and the specification is kept in sync with the code.
-- **Check that experiments test what they claim**: each scenario declares the state it is meant to exercise, and the experimental harness verifies that this state was actually reached.
 
 ## Background
 

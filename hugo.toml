@@ -19,7 +19,7 @@ theme = "PaperMod"
     email = "celeste-precil.guimapi-guefack@imt-atlantique.fr"
 
     # Replace with a real photo (e.g. /images/profile/celeste.jpg) when available.
-    profileImage = "/images/profile/placeholder.svg"
+    profileImage = "/images/profile/profile2.png"
 
     defaultTheme = "auto"
     disableThemeToggle = false

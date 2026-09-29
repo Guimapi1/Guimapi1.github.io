@@ -21,7 +21,7 @@ I currently work on serverless platforms, on how to enforce a **strict energy bu
 
 ## Teaching
 
-- **Smart Grid Project** — lab sessions for first-year students (L1), IMT Atlantique, 2025 (17 h).
+- **Smart Grid Project** — lab sessions for first-year students (L1), IMT Atlantique, 2025 & 2026 (17 h * 2).
 
 ## Beyond research
 
