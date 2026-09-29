@@ -6,7 +6,7 @@ period: "2025 – present"
 status: "Implementation complete · experimental campaign in progress · article in preparation"
 platform: "Apache OpenWhisk on Grid'5000"
 keywords: ["Serverless", "Energy budgets", "Scheduling", "OpenWhisk"]
-stack: "Go · Python · Kubernates · Apache OpenWhisk"
+stack: "Go · Python · Kubernetes · Apache OpenWhisk"
 weight: 1
 aliases:
   - /projects/energy-efficient-serverless/

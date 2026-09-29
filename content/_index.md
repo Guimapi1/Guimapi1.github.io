@@ -35,7 +35,7 @@ research:
       it runs. I am building a system for Apache OpenWhisk that turns the
       budget into a guarantee — without leaving multi-step workflows in an
       inconsistent state when an execution has to be stopped.
-    stack: "Apache OpenWhisk · Go · Python · Kubernates · Grid'5000"
+    stack: "Apache OpenWhisk · Go · Python · Kubernetes · Grid'5000"
     link: "/projects/energy-budgets-serverless/"
 
 # Paths of the project pages shown as cards, in order.

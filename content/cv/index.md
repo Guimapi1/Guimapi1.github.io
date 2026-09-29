@@ -74,7 +74,7 @@ Python · Go · C · Java · SQL · JavaScript / TypeScript
 {{< /cv-entry >}}
 
 {{< cv-entry title="Systems & research infrastructure" dates="" >}}
-Apache OpenWhisk · Docker · Linux · Kubernates · perf · Git\
+Apache OpenWhisk · Docker · Linux · Kubernetes · perf · Git\
 Also familiar with Knative, OpenFaaS.
 {{< /cv-entry >}}
 
